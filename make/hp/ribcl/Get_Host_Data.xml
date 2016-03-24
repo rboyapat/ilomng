@@ -1,0 +1,7 @@
+<RIBCL version="2.21">
+   <LOGIN USER_LOGIN="ILO_LOGIN" PASSWORD="ADMINPW">
+      <SERVER_INFO MODE="READ" >
+         <GET_HOST_DATA />
+      </SERVER_INFO>
+   </LOGIN>
+</RIBCL>

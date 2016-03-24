@@ -1,0 +1,5 @@
+__Download the ribcl xmls from HP site and run the below command__
+
+```
+sed -e '/^[[:space:]]*$/d' -e '/^<!--/d' RIBCL XMLS from HP site
+```

@@ -1,0 +1,40 @@
+<RIBCL VERSION="2.0">
+   <LOGIN USER_LOGIN="ILO_LOGIN" PASSWORD="ADMINPW">
+    <RIB_INFO MODE="write">
+     <MOD_SNMP_IM_SETTINGS>
+       <WEB_AGENT_IP_ADDRESS value=""/>                
+       <SNMP_ADDRESS_1 value="ILO_SNMP_SERVER1"/>                      
+       <SNMP_ADDRESS_2 value=""/>                      
+       <SNMP_ADDRESS_3 value=""/>                      
+       <SNMP_PASSTHROUGH_STATUS value="No"/>                         
+       <RIB_TRAPS value="Yes"/>                                        
+       <CIM_SECURITY_MASK value="3"/>                                 
+       <SNMP_ADDRESS_1_ROCOMMUNITY VALUE=""/>
+       <SNMP_ADDRESS_1_TRAPCOMMUNITY VERSION="v1" VALUE="ILO_SNMP_TRAPCOMMUNITY"/>
+       <SNMP_ADDRESS_2_ROCOMMUNITY VALUE=""/>
+       <SNMP_ADDRESS_2_TRAPCOMMUNITY VERSION="v2c" VALUE=""/>
+       <SNMP_ADDRESS_3_ROCOMMUNITY VALUE=""/>
+       <SNMP_ADDRESS_3_TRAPCOMMUNITY VERSION="1" VALUE=""/>
+       <AGENTLESS_MANAGEMENT_ENABLE value="Yes"/>
+       <SNMP_SYS_CONTACT VALUE="ILO_SNMP_SYS_CONTACT"/>
+       <SNMP_SYS_LOCATION VALUE="ILO_SNMP_SYS_LOCATION"/>
+       <SNMP_SYSTEM_ROLE VALUE=""/>
+       <SNMP_SYSTEM_ROLE_DETAIL VALUE=""/>
+       <COLD_START_TRAP_BROADCAST value="Yes"/>
+       <TRAP_SOURCE_IDENTIFIER value = "iLO Hostname"/>
+       <SNMP_ACCESS_ENABLED value = "Yes"/>
+       <SNMP_PORT value="161"/>
+       <SNMP_TRAP_PORT value="162"/>
+       <SNMP_V1_TRAPS VALUE="Yes"/>
+       <SNMP_V3_ENGINE_ID VALUE=""/>
+       <SNMP_USER_PROFILE INDEX = "1">
+         <SECURITY_NAME VALUE="ILO_SNMP_SECURITY_NAME"/> 
+         <AUTHN_PROTOCOL VALUE="0"/>
+         <AUTHN_PASSPHRASE VALUE="ILO_SNMP_AUTHN_PASSPHRASE"/>
+         <PRIVACY_PROTOCOL VALUE="0"/>
+         <PRIVACY_PASSPHRASE VALUE="ILO_SNMP_PRIVACY_PASSPHRASE"/>
+       </SNMP_USER_PROFILE>
+    </MOD_SNMP_IM_SETTINGS>
+  </RIB_INFO>
+  </LOGIN>
+</RIBCL>
