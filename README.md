@@ -40,3 +40,8 @@ ILO_SNMP_AUTHN_PASSPHRASE=passphrase99
 ILO_SNMP_PRIVACY_PASSPHRASE=secret99
 VIRTUAL_MEDIA_URL="http:\/\/webserverip\/html\/spp_2015.10.0-SPP2015100.iso"
 ```
+
+##Execution:
+```
+./ilomng.sh -a getiloinfo -c dc1 -p password 10.10.0.10
+```
