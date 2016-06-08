@@ -127,6 +127,14 @@ ResetSys()
         $curl --insecure -X POST -d "${TGTXML}" "https://${HPILOIP}/ribcl"
 }
 
+NetBoot()
+{
+	SRCXML=${MYPATH}/make/hp/ribcl/Net_Boot.xml
+        TGTXML=$(sed -e "s/ILO_LOGIN/${ILO_LOGIN}/g" -e "s/ADMINPW/${ADMINPW}/g" ${SRCXML} )
+        $curl --insecure -X POST -d "${TGTXML}" "https://${HPILOIP}/ribcl"
+	ResetSys
+}
+
 GetDataOP ()
 {
 	case $ACTION in
@@ -224,6 +232,9 @@ do
 			;;
 		resetsys)
 			ResetSys
+			;;
+		netboot)
+			NetBoot
 			;;
 		get*)
 			GetDataOP
