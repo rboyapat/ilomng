@@ -127,10 +127,42 @@ ResetSys()
         $curl --insecure -X POST -d "${TGTXML}" "https://${HPILOIP}/ribcl"
 }
 
-NetBoot()
+BootMedia()
 {
-	SRCXML=${MYPATH}/make/hp/ribcl/Net_Boot.xml
-        TGTXML=$(sed -e "s/ILO_LOGIN/${ILO_LOGIN}/g" -e "s/ADMINPW/${ADMINPW}/g" ${SRCXML} )
+	case $ACTION in
+		bootnet)
+			BOOT_MEDIA=network
+			;;
+		bootcdrom)
+			BOOT_MEDIA=cdrom
+			;;
+		boothd)
+			BOOT_MEDIA=hdd
+			;;
+		bootfloppy)
+			BOOT_MEDIA=floppy
+			;;
+		bootbios)
+			BOOT_MEDIA=RBSU
+			;;
+		bootusb)
+			BOOT_MEDIA=USB
+			;;
+		bootuefi)
+			BOOT_MEDIA=UEFI_Shell
+			;;
+		bootnormal)
+			BOOT_MEDIA=normal
+			;;
+		*)
+			echo "Wrong boot media specified"
+			Usage ${E_NOACTION}
+			;;
+	esac
+	
+
+	SRCXML=${MYPATH}/make/hp/ribcl/Boot_Media.xml
+        TGTXML=$(sed -e "s/ILO_LOGIN/${ILO_LOGIN}/g" -e "s/ADMINPW/${ADMINPW}/g" -e "s/BOOT_MEDIA/${BOOT_MEDIA}/g" ${SRCXML} )
         $curl --insecure -X POST -d "${TGTXML}" "https://${HPILOIP}/ribcl"
 	ResetSys
 }
@@ -233,8 +265,8 @@ do
 		resetsys)
 			ResetSys
 			;;
-		netboot)
-			NetBoot
+		boot*)
+			BootMedia
 			;;
 		get*)
 			GetDataOP
